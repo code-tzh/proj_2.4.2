@@ -1,0 +1,22 @@
+package web.dao;
+
+import web.model.Role;
+import web.model.User;
+
+import java.util.List;
+import java.util.Set;
+
+//public interface UserDao extends JpaRepository<User, Long> {
+//    User findByUsername(String username);
+//}
+
+public interface UserDao {
+    public List<User> allUsers();
+    public void addUser(User user);
+    public void deleteUser(Long id);
+    public User editUser(User user);
+    public User getById(Long id);
+    User getUserByName(String username);
+    Set<Role> getAllRoles();
+}
+

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="spring_hiber@localhost" uuid="4cd48cfc-b8b9-4250-99b0-8364c1b2883c">
+    <data-source source="LOCAL" name="crud_security@localhost" uuid="5a1be3de-c166-4f1a-93e8-3e639a8d9dd3">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/spring_hiber</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/crud_security</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <driver-properties>
         <property name="serverTimezone" value="UTC" />

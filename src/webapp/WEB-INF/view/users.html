@@ -14,22 +14,32 @@
 <table border="1" cellpadding="10">
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Username</th>
         <th>Surname</th>
         <th>Year</th>
+        <th>Password</th>
     </tr>
     <tr th:each ="user : ${users}">
         <td th:utext="${user.getId()}"></td>
-        <td th:utext="${user.getName()}"></td>
+        <td th:utext="${user.getUsername()}"></td>
         <td th:utext="${user.getSurname()}"></td>
         <td th:utext="${user.getYear()}"></td>
-        <td><a th:href="@{/update(id=${user.getId()})}">Edit</a></td>
-        <td><a th:href="@{/delete(id=${user.getId()})}">Delete</a></td>
+        <td th:utext="${user.getPassword()}"></td>
+        <td><a th:href="@{/admin/update(id=${user.getId()})}">Edit</a></td>
+        <td><a th:href="@{/admin/delete(id=${user.getId()})}">Delete</a></td>
     </tr>
 </table>
 <br>
 <br>
-<input type="button" value="addUser" onclick="window.location.href = '/addUser' "/>
+
+<form >
+    <a th:href="@{/admin/addUser}">Add User</a>
+</form>
+
+<br><br>
+<form th:method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
 
 </body>
 </html>

@@ -4,47 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.security.Principal;
 import web.model.User;
-import web.service.UserService;
+import web.services.UserService;
+
 
 @Controller
+@RequestMapping("")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
-    public String showAllUsers(Model model) {
-        model.addAttribute("users", userService.allUsers());
-        return "users";
-    }
+//    @GetMapping("/user")
+//    public String getUser(Model model) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        model.addAttribute("user", userService.getUserByName(authentication.getName()));
+//        return "user";
+//    }
 
-    @GetMapping("/addUser")
-    public String newUser(Model model) {
-        model.addAttribute("user", new User());
-        return "addUser";
-    }
-
-    @PostMapping
-    public String create(@ModelAttribute("user") User user) {
-        userService.addUser(user);
-        return "redirect:/";
-    }
-
-    @GetMapping("/update")
-    public String editUser(@RequestParam(value = "id") Long id, Model model) {
-        model.addAttribute("user", userService.getById(id));
-        return "update";
-    }
-
-    @PostMapping("/update")
-    public String updateUser(@ModelAttribute User user) {
-        userService.editUser(user);
-        return "redirect:/";
-    }
-
-    @GetMapping("/delete")
-    public String deleteUser(@RequestParam Long id, Model model) {
-        userService.deleteUser(id);
-        return "redirect:/";
+    @GetMapping("/{id}")
+    public String showUser(Principal principal, Model model){
+        User username = userService.getUserByName(principal.getName());
+        model.addAttribute("user", username);
+        return "user";
     }
 }

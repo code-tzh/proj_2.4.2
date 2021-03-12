@@ -10,11 +10,11 @@
 <h2>New User</h2>
 <br>
 
-<form th:method="POST" th:action="@{/}" th:object="${user}">
+<form th:method="POST" th:action="@{/admin/addUser}" th:object="${user}">
     <div>
         <input type="hidden"  th:field="*{id}" id="id"/>
-        <label for="name">Name</label>
-        <input type="text" th:field="*{name}" id="name"/>
+        <label for="username">Username</label>
+        <input type="text" th:field="*{username}" id="username"/>
         <br>
         <br>
         <label for="surname">Surname</label>
@@ -24,10 +24,17 @@
         <label for="year">Year</label>
         <input type="text" th:field="*{year}" id="year"/>
         <br><br>
+        <label for="password">Password</label>
+        <input type="text" th:field="*{password}" id="password"/>
+        <br><br>
 
         <input type="submit"  value="Add User"/>
     </div>
 </form>
-</body>
+<br><br>
+<form th:method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
 
+</body>
 </html>

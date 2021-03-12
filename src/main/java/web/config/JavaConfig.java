@@ -45,5 +45,4 @@ public class JavaConfig implements WebMvcConfigurer {
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
     }
-
 }

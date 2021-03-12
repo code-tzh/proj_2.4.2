@@ -58,7 +58,6 @@ public class HiberConfig {
         properties.put("hibernate.connection.characterEncoding", "utf8");
         properties.put("hibernate.connection.CharSet", "utf8");
         properties.put("hibernate.connection.useUnicode", true);
-
         return properties;
     }
 }
