@@ -22,7 +22,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void addUser(User user) {
-        userDao.addUser(user);
+        if(user.getId() == null) {
+            userDao.addUser(user);
+        } else userDao.editUser(user);
     }
 
     @Override

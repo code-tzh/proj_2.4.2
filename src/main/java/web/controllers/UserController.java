@@ -12,9 +12,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
+    @GetMapping
     public String showAllUsers(Model model) {
-        //List<User> tableUsers = UserService.allUsers();
         model.addAttribute("users", userService.allUsers());
         return "users";
     }

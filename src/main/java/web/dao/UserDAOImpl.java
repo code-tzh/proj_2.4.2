@@ -19,11 +19,7 @@ public class UserDAOImpl implements UserDAO{
                 .getResultList();
     }
     @Override
-    public void addUser(User user) {
-        if(user.getId() == null) {
-            entityManager.persist(user);
-        } else entityManager.merge(user);
-    }
+    public void addUser(User user) { entityManager.persist(user); }
 
     @Override
     public void deleteUser(Long id) {
