@@ -10,7 +10,7 @@ import web.services.UserService;
 import java.security.Principal;
 
 @Controller
-@RequestMapping({"/admin"})
+@RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
