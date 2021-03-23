@@ -13,5 +13,4 @@ public interface UserService {
     User editUser(User user);
     User getById(Long id);
     User getUserByName(String username);
-    Set<Role> getAllRoles();
 }

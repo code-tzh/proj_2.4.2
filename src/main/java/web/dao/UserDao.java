@@ -17,6 +17,5 @@ public interface UserDao {
     public User editUser(User user);
     public User getById(Long id);
     User getUserByName(String username);
-    Set<Role> getAllRoles();
 }
 

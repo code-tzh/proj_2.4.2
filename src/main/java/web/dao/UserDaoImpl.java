@@ -1,11 +1,13 @@
 package web.dao;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import web.model.Role;
 import web.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,18 +48,9 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public User getUserByName(String username) {
-        return (User) entityManager.createQuery("from User user where user.username = :username")
-                .setParameter("username", username).getSingleResult();
-    }
-
-    @Override
-    public Set<Role> getAllRoles() {
-        Set<Role> roleSet = new HashSet<>();
-        List<Role> roleList = entityManager.createQuery("select role from Role role").getResultList();
-        roleSet.addAll(roleList);
-        return roleSet;
+        return (User) entityManager
+                .createQuery("from User u  inner JOIN FETCH u.roles as roles WHERE u.username = :username")
+                .setParameter("username", username)
+                .getSingleResult();
     }
 }
-
-//    @Query List<User> users = entityManager.createQuery("SELECT DISTINCT a FROM User a JOIN FETCH a.roles b",
-//            User.class).getResultList(); !!
