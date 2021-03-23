@@ -1,16 +1,11 @@
 package web.dao;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import web.model.Role;
 import web.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 //@Repository
 //public interface UserDaoImpl extends JpaRepository<Role, Long> {
